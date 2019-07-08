@@ -6,10 +6,20 @@ import discord
 
 # Create txt file to store & read token from which will be stored in a variable
 with open('token.txt', 'w') as file:
-    file.write('{YOUR OWN TOKEN}')  # Enter your own token here
+    file.write('NTk3NTYzNjgzMTkwNzM0ODYx.XSJ7Xg.IohROrhHDLe2lXXTYZ7mfZgQ8C8')  # Enter your own token here
 
 bot_token = open('token.txt').read()
 
 discord_client = discord.Client()
+
+@discord_client.event
+async def on_ready():   # Method gets called when bot starts up
+    print(f'Logged in as: {discord_client.user}')
+
+@discord_client.event
+async def on_message(message):
+    print(f'{message.channel}: {message.author}: {message.author.name}: {message.content}')
+    if (str(message.content).lower() == 'test'):
+        await message.channel.send('test')
 
 discord_client.run(bot_token)
