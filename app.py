@@ -6,7 +6,7 @@ import discord
 
 # Create txt file to store & read token from which will be stored in a variable
 with open('token.txt', 'w') as file:
-    file.write('NTk3NTYzNjgzMTkwNzM0ODYx.XSJ7Xg.IohROrhHDLe2lXXTYZ7mfZgQ8C8')  # Enter your own token here
+    file.write('{YOUR TOKEN HERE}')  # Enter your own token here
 
 bot_token = open('token.txt').read()
 
