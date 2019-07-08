@@ -1,4 +1,5 @@
 import discord
+from game import games_today
 
 # Authorize and invite your bot with the server of your choice
 # Replace CLIENT_ID and PERMISSION_INT with your own
@@ -6,7 +7,7 @@ import discord
 
 # Create txt file to store & read token from which will be stored in a variable
 with open('token.txt', 'w') as file:
-    file.write('{YOUR TOKEN HERE}')  # Enter your own token here
+    file.write('{YOUR OWN TOKEN}')  # Enter your own token here
 
 bot_token = open('token.txt').read()
 
@@ -20,6 +21,8 @@ async def on_ready():   # Method gets called when bot starts up
 async def on_message(message):
     print(f'{message.channel}: {message.author}: {message.author.name}: {message.content}')
     if (str(message.content).lower() == 'test'):
-        await message.channel.send('test')
+
+        today_games = games_today()
+        await message.channel.send(today_games)
 
 discord_client.run(bot_token)
