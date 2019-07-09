@@ -1,5 +1,5 @@
 import discord
-from game import games_today
+import game
 
 # Authorize and invite your bot with the server of your choice
 # Replace CLIENT_ID and PERMISSION_INT with your own
@@ -22,7 +22,7 @@ async def on_message(message):
     print(f'{message.channel}: {message.author}: {message.author.name}: {message.content}')
     if (str(message.content).lower() == 'test'):
 
-        today_games = games_today()
+        today_games = game.games_today()
         await message.channel.send(today_games)
 
 discord_client.run(bot_token)
